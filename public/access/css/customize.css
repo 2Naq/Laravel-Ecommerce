@@ -1,0 +1,14 @@
+:root {
+    --danger-color: #f31260;
+}
+
+.mb_input {
+    margin-bottom: 4px;
+}
+
+.error-message {
+    color: var(--danger-color);
+}
+input::placeholder {
+    font-size: 13px;
+}

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\backend\AuthController;
+use App\Http\Controllers\backend\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* BACKEMD ROUTE*/
+Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
+
+Route::get('/admin', [AuthController::class, 'index'])->name('auth.admin');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
