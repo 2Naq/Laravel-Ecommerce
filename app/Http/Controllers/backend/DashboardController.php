@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $config = $this->configs();
         $template = 'backend.dashboard.home.index';
         return view('backend.dashboard.layout', compact(
-            'template', 'config'
+            'template', 'config',
         ));
     }
     
@@ -48,4 +48,6 @@ class DashboardController extends Controller
             "access/js/demo/sparkline-demo.js"]
         ];
     }
+
+
 }

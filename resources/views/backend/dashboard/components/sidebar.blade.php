@@ -37,11 +37,17 @@
                 </div>
             </li>
             <li class="active">
-                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Quản lý</span> <span
-                        class="fa arrow"
-                    ></span></a>
+                <a href="#"><i class="fa fa-th-large"></i>
+                    <span class="nav-label">Tổng quan</span>
+                </a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-th-large"></i>
+                    <span class="nav-label">Quản lý</span>
+                    <span class="fa arrow"></span>
+                </a>
                 <ul class="nav nav-second-level">
-                    <li class="active"><a href="index.html">Quản lý User</a></li>
+                    <li><a href="{{ route('user.index') }}">Quản lý User</a></li>
                     <li><a href="#">Phân quyền</a></li>
                 </ul>
             </li>

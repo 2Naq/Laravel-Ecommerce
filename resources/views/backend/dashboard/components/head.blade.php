@@ -5,7 +5,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>INSPINIA | Dashboard v.2</title>
+<title>SHOPDEV | Dashboard</title>
 
 <link
     href="access/css/bootstrap.min.css"
