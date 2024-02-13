@@ -1,14 +1,184 @@
+@import url(tailwind/margin.css);
+@import url(tailwind/backgroundcolor.css);
+@import url(tailwind/object.css);
 :root {
     --danger-color: #f31260;
 }
 
-.mb_input {
-    margin-bottom: 4px;
+/* --------------------------------------------------------- */
+
+input::placeholder {
+    font-size: 13px;
 }
 
 .error-message {
     color: var(--danger-color);
 }
-input::placeholder {
-    font-size: 13px;
+
+/*-------- MARGIN --------*/
+.mb20 {
+    margin-bottom: 20px;
+}
+.mt20 {
+    margin-top: 20px;
+}
+.mb_input {
+    margin-bottom: 4px;
+}
+/*-------- Display --------*/
+/*===============================================================
+===============================================================*/
+.grid {
+    display: grid;
+}
+/*------------------------ flex ------------------------*/
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-col-reverse {
+    flex-direction: column-reverse;
+}
+/*------------------------ Block ------------------------*/
+
+.block {
+    display: block;
+}
+.inline-block {
+    display: inline-block;
+}
+.inline {
+    display: inline;
+}
+.d-logo {
+    display: flex;
+    justify-content: center;
+}
+
+/* Justify-content ============================================
+===============================================================
+===============================================================*/
+.justify-normal {
+    justify-content: normal;
+}
+.justify-start {
+    justify-content: flex-start;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-around {
+    justify-content: space-around;
+}
+.justify-evenly {
+    justify-content: space-evenly;
+}
+.justify-stretch {
+    justify-content: stretch;
+}
+
+/*  Align items ============================================
+===============================================================
+===============================================================*/
+.items-start {
+    align-items: flex-start;
+}
+.items-end {
+    align-items: flex-end;
+}
+.items-center {
+    align-items: center;
+}
+.items-baseline {
+    align-items: baseline;
+}
+.items-stretch {
+    align-items: stretch;
+}
+
+/*  justify-items ==> use Grid=================================
+===============================================================
+===============================================================*/
+.justify-items-start {
+    justify-items: start;
+}
+.justify-items-end {
+    justify-items: end;
+}
+.justify-items-center {
+    justify-items: center;
+}
+.justify-items-stretch {
+    justify-items: stretch;
+}
+
+/*  Align Content ==> use Grid=================================
+===============================================================
+===============================================================*/
+.content-normal {
+    align-content: normal;
+}
+.content-center {
+    align-content: center;
+}
+.content-start {
+    align-content: flex-start;
+}
+.content-end {
+    align-content: flex-end;
+}
+.content-between {
+    align-content: space-between;
+}
+.content-around {
+    align-content: space-around;
+}
+.content-evenly {
+    align-content: space-evenly;
+}
+.content-baseline {
+    align-content: baseline;
+}
+.content-stretch {
+    align-content: stretch;
+}
+
+/**/
+.radius-3px {
+    border-radius: 3px;
+}
+/*-------- TABLE --------*/
+td.spacing-0 {
+    width: 0%;
+}
+.w-auto {
+    width: auto;
+}
+.w-100 {
+    width: 100%;
+}
+.tb_w-100 {
+    width: 10%;
+}
+.col-sm-12 h2 {
+    text-transform: uppercase;
+    font-weight: 800;
 }

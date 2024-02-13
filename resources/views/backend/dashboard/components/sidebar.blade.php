@@ -37,12 +37,12 @@
                 </div>
             </li>
             <li class="active">
-                <a href="#"><i class="fa fa-th-large"></i>
+                <a href="{{ route('dashboard.index') }}"><i class="fa fa-th-large"></i>
                     <span class="nav-label">Tổng quan</span>
                 </a>
             </li>
             <li>
-                <a href=""><i class="fa fa-th-large"></i>
+                <a href="#"><i class="fa fa-th-large"></i>
                     <span class="nav-label">Quản lý</span>
                     <span class="fa arrow"></span>
                 </a>

@@ -6883,13 +6883,6 @@ body.body-small .vote-icon {
 */
 /* GLOBAL STYLES
 -------------------------------------------------- */
-.d-logo {
-    display: flex;
-    justify-content: center;
-}
-.radius-3px {
-    border-radius: 3px;
-}
 
 /* PACE PLUGIN
 -------------------------------------------------- */

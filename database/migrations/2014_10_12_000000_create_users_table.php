@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',50);
             $table->string('password');
-            $table->string('phone_number',10)->nullable()->uniqid();
+            $table->string('phone_number')->nullable()->uniqid();
             $table->string('email')->nullable()->unique(); // cho phép giá trị null nhưng vẵn đảm bảo là unique(only value), nếu unique đặt trước sẽ dễ gây ra lỗi
             $table->string('province_id',10)->nullable();// mã tỉnh/thành phố
             $table->string('district_id',10)->nullable();// mã quận/huyện
