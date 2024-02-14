@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Services\UserService;
 use Illuminate\Http\Request;
-use App\Models\User;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        
+    public function __construct(
+        protected UserService $userService,
+    ){
+        $this->userService = $userService;
     }
     public function index() {
-        $users = User::paginate();
+
+        $users = $this->userService->paginate();
         $config = $this->config();
         $template = 'backend.dashboard.user.index';
 
