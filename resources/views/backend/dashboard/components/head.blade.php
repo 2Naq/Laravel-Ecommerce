@@ -1,4 +1,5 @@
 <base href="{{ env('APP_URL') }}">
+{{-- <base href="http://localhost:8000/"> --}}
 <meta charset="utf-8">
 <meta
     name="viewport"

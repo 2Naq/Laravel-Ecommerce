@@ -7,8 +7,8 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     protected $service = [
-        'APP\Services\Interfaces\UserServiceInterface' => 'APP\Services\UserService',
-        'App\Repositories\Interfaces\UserRepositoryInterface' => 'APP\Repositories\UserRepository',
+        'App\Services\Interfaces\UserServiceInterface' => 'App\Services\UserService',
+        'App\Repositories\Interfaces\UserRepositoryInterface' => 'App\Repositories\UserRepository',
     ];
     /**
      * Register any application services.

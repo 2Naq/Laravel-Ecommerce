@@ -7,7 +7,7 @@ export default defineConfig({
             input: [
                 "resources/css/app.css",
                 "resources/js/app.js",
-                "resources/views/**",
+                "resources/views/**/*.blade.php",
             ],
             refresh: true,
         }),

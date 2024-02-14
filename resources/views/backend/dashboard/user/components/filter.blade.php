@@ -46,10 +46,12 @@
                 </span>
             </div>
             <span class="w-auto">
-                <button
+                <a
+                    href="{{ route('user.create') }}"
                     type="button"
                     class="btn btn-sm btn-primary mr-2"
-                > <i class="fa fa-plus"></i> Thêm thành viên mới</button>
+                >
+                    <i class="fa fa-plus"></i> Thêm thành viên mới</a>
             </span>
         </div>
     </div>

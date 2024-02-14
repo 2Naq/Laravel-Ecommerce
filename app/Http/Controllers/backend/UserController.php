@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use App\Services\UserService;
+use App\Services\Interfaces\UserServiceInterface as UserService;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,20 +13,25 @@ class UserController extends Controller
     ){
         $this->userService = $userService;
     }
-    public function index() {
 
+    public function index(Request $request) {
         $users = $this->userService->paginate();
         $config = $this->config();
+        $config['seo'] = config('apps.user');
         $template = 'backend.dashboard.user.index';
-
-
         return view('backend.dashboard.layout', compact(
             'template',
             'config',
             'users'
         ));
     }
-
+    public function create() {
+        $config['seo'] = config('apps.user');
+        $template = 'backend.dashboard.user.create';
+        return view('backend.dashboard.layout', compact(
+            'template', 'config', 
+        ));
+    }
     public function config() {
         return [
             'js' => [

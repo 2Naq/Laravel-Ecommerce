@@ -19,7 +19,8 @@ class DashboardController extends Controller
             'template', 'config', 
         ));
     }
-    
+
+
     public function configs() {
         return [
             'js' => [
@@ -48,7 +49,7 @@ class DashboardController extends Controller
             "access/js/demo/sparkline-demo.js",
 
             "access/js/data_chart.js"
-            ], 
+            ],
         ];
     }
 

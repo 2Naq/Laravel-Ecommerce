@@ -33,6 +33,10 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/index', [UserController::class, 'index'])
         ->middleware('auth_check')
         ->name('user.index');
+        
+        Route::get('/create', [UserController::class, 'create'])
+        ->middleware('auth_check')
+        ->name('user.create');
     });
 });
 
