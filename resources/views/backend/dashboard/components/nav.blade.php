@@ -1,165 +1,204 @@
-<div class="row border-bottom">
-    <nav
-        class="navbar navbar-static-top white-bg"
-        role="navigation"
-        style="margin-bottom: 0"
-    >
-        <div class="navbar-header">
-            <a
-                class="navbar-minimalize minimalize-styl-2 btn btn-primary"
-                href="#"
-            ><i class="fa fa-bars"></i> </a>
-            <form
-                role="search"
-                class="navbar-form-custom"
-                action="search_results.html"
-            >
-                <div class="form-group">
+<nav
+    class="duration-250 ease-soft-in relative mx-6 flex flex-wrap items-center justify-between rounded-2xl px-0 py-2 shadow-none transition-all lg:flex-nowrap lg:justify-start"
+    navbar-main
+    navbar-scroll="true"
+>
+    <div class="flex-wrap-inherit mx-auto flex w-full items-center justify-between px-4 py-1">
+        <nav>
+            <!-- breadcrumb -->
+            <ol class="mr-12 flex flex-wrap rounded-lg bg-transparent pt-1 sm:mr-16">
+                <li class="text-sm leading-normal">
+                    <a
+                        class="text-slate-700 opacity-50"
+                        href="javascript:;"
+                    >Pages</a>
+                </li>
+                <li
+                    class="pl-2 text-sm capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+                    aria-current="page"
+                >{{ $title }}</li>
+            </ol>
+            <h6 class="mb-0 font-bold capitalize">{{ $title }}</h6>
+        </nav>
+
+        <div class="mt-2 flex grow items-center sm:mr-6 sm:mt-0 md:mr-0 lg:flex lg:basis-auto">
+            <div class="flex items-center md:ml-auto md:pr-4">
+                <div class="ease-soft relative flex w-full flex-wrap items-stretch rounded-lg transition-all">
+                    <span
+                        class="ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-br-none rounded-tr-none border border-r-0 border-transparent bg-transparent px-2.5 py-2 text-center text-sm font-normal text-slate-500 transition-all"
+                    >
+                        <i class="fas fa-search"></i>
+                    </span>
                     <input
                         type="text"
-                        placeholder="Search for something..."
-                        class="form-control"
-                        name="top-search"
-                        id="top-search"
-                    >
+                        class="pl-8.75 focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-sm text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                        placeholder="Type here..."
+                    />
                 </div>
-            </form>
+            </div>
+            <ul class="md-max:w-full mb-0 flex list-none flex-row justify-end pl-0">
+                <li class="flex items-center">
+                    <a
+                        href="{{ route('auth.logout') }}"
+                        class="ease-nav-brand block px-0 py-2 text-sm font-semibold text-slate-500 transition-all"
+                    >
+                        <i class="fa fa-sign-out sm:mr-1"></i>
+                        <span class="hidden sm:inline">Logout</span>
+                    </a>
+                </li>
+                <li class="flex items-center pl-4 xl:hidden">
+                    <a
+                        href="javascript:;"
+                        class="ease-nav-brand block p-0 text-sm text-slate-500 transition-all"
+                        sidenav-trigger
+                    >
+                        <div class="w-4.5 overflow-hidden">
+                            <i
+                                class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                            <i
+                                class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                            <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="flex items-center px-4">
+                    <a
+                        href="javascript:;"
+                        class="ease-nav-brand p-0 text-sm text-slate-500 transition-all"
+                    >
+                        <i
+                            fixed-plugin-button-nav
+                            class="fa fa-cog cursor-pointer"
+                        ></i>
+                        <!-- fixed-plugin-button-nav  -->
+                    </a>
+                </li>
+
+                <!-- notifications -->
+
+                <li class="relative flex items-center pr-2">
+                    <p class="transform-dropdown-show hidden"></p>
+                    <a
+                        href="javascript:;"
+                        class="ease-nav-brand block p-0 text-sm text-slate-500 transition-all"
+                        dropdown-trigger
+                        aria-expanded="false"
+                    >
+                        <i class="fa fa-bell cursor-pointer"></i>
+                    </a>
+
+                    <ul
+                        dropdown-menu
+                        class="transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-sm text-slate-500 opacity-0 transition-all before:absolute before:left-auto before:right-2 before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:left-auto lg:right-0 lg:mt-2 lg:block lg:cursor-pointer"
+                    >
+                        <!-- add show class on dropdown open js -->
+                        <li class="relative mb-2">
+                            <a
+                                class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors"
+                                href="javascript:;"
+                            >
+                                <div class="flex py-1">
+                                    <div class="my-auto">
+                                        <img
+                                            src="./assets/img/team-2.jpg"
+                                            class="mr-4 inline-flex h-9 w-9 max-w-none items-center justify-center rounded-xl text-sm text-white"
+                                        />
+                                    </div>
+                                    <div class="flex flex-col justify-center">
+                                        <h6 class="mb-1 text-sm font-normal leading-normal"><span
+                                                class="font-semibold">New message</span> from Laur</h6>
+                                        <p class="mb-0 text-xs leading-tight text-slate-400">
+                                            <i class="fa fa-clock mr-1"></i>
+                                            13 minutes ago
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="relative mb-2">
+                            <a
+                                class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
+                                href="javascript:;"
+                            >
+                                <div class="flex py-1">
+                                    <div class="my-auto">
+                                        <img
+                                            src="./assets/img/small-logos/logo-spotify.svg"
+                                            class="mr-4 inline-flex h-9 w-9 max-w-none items-center justify-center rounded-xl bg-gradient-to-tl from-gray-900 to-slate-800 text-sm text-white"
+                                        />
+                                    </div>
+                                    <div class="flex flex-col justify-center">
+                                        <h6 class="mb-1 text-sm font-normal leading-normal"><span
+                                                class="font-semibold">New album</span> by Travis Scott</h6>
+                                        <p class="mb-0 text-xs leading-tight text-slate-400">
+                                            <i class="fa fa-clock mr-1"></i>
+                                            1 day
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="relative">
+                            <a
+                                class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
+                                href="javascript:;"
+                            >
+                                <div class="flex py-1">
+                                    <div
+                                        class="ease-nav-brand my-auto mr-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tl from-slate-600 to-slate-300 text-sm text-white transition-all duration-200">
+                                        <svg
+                                            width="12px"
+                                            height="12px"
+                                            viewBox="0 0 43 36"
+                                            version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        >
+                                            <title>credit-card</title>
+                                            <g
+                                                stroke="none"
+                                                stroke-width="1"
+                                                fill="none"
+                                                fill-rule="evenodd"
+                                            >
+                                                <g
+                                                    transform="translate(-2169.000000, -745.000000)"
+                                                    fill="#FFFFFF"
+                                                    fill-rule="nonzero"
+                                                >
+                                                    <g transform="translate(1716.000000, 291.000000)">
+                                                        <g transform="translate(453.000000, 454.000000)">
+                                                            <path
+                                                                class="color-background"
+                                                                d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
+                                                                opacity="0.593633743"
+                                                            ></path>
+                                                            <path
+                                                                class="color-background"
+                                                                d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
+                                                            ></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col justify-center">
+                                        <h6 class="mb-1 text-sm font-normal leading-normal">Payment
+                                            successfully completed</h6>
+                                        <p class="mb-0 text-xs leading-tight text-slate-400">
+                                            <i class="fa fa-clock mr-1"></i>
+                                            2 days
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <ul class="nav navbar-top-links navbar-right">
-            <li>
-                <span class="m-r-sm text-muted welcome-message">Welcome to SHOPDEV.</span>
-            </li>
-            <li class="dropdown">
-                <a
-                    class="dropdown-toggle count-info"
-                    data-toggle="dropdown"
-                    href="#"
-                >
-                    <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
-                </a>
-                <ul class="dropdown-menu dropdown-messages">
-                    <li>
-                        <div class="dropdown-messages-box">
-                            <a
-                                href="profile.html"
-                                class="pull-left"
-                            >
-                                <img
-                                    alt="image"
-                                    class="img-circle"
-                                    src="img/a7.jpg"
-                                >
-                            </a>
-                            <div>
-                                <small class="pull-right">46h ago</small>
-                                <strong>Mike Loreipsum</strong> started following <strong>Monica
-                                    Smith</strong>. <br>
-                                <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <div class="dropdown-messages-box">
-                            <a
-                                href="profile.html"
-                                class="pull-left"
-                            >
-                                <img
-                                    alt="image"
-                                    class="img-circle"
-                                    src="img/a4.jpg"
-                                >
-                            </a>
-                            <div>
-                                <small class="pull-right text-navy">5h ago</small>
-                                <strong>Chris Johnatan Overtunk</strong> started following
-                                <strong>Monica Smith</strong>. <br>
-                                <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <div class="dropdown-messages-box">
-                            <a
-                                href="profile.html"
-                                class="pull-left"
-                            >
-                                <img
-                                    alt="image"
-                                    class="img-circle"
-                                    src="img/profile.jpg"
-                                >
-                            </a>
-                            <div>
-                                <small class="pull-right">23h ago</small>
-                                <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
-                                <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <div class="link-block text-center">
-                            <a href="mailbox.html">
-                                <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a
-                    class="dropdown-toggle count-info"
-                    data-toggle="dropdown"
-                    href="#"
-                >
-                    <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
-                </a>
-                <ul class="dropdown-menu dropdown-alerts">
-                    <li>
-                        <a href="mailbox.html">
-                            <div>
-                                <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="profile.html">
-                            <div>
-                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                <span class="pull-right text-muted small">12 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="grid_options.html">
-                            <div>
-                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <div class="link-block text-center">
-                            <a href="notifications.html">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="{{ route('auth.logout') }}">
-                    <i class="fa fa-sign-out"></i> Logout
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
+    </div>
+</nav>

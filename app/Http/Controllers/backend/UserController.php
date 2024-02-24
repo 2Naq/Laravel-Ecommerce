@@ -16,41 +16,30 @@ class UserController extends Controller
 
     public function index(Request $request) {
         $users = $this->userService->paginate();
-        $config = $this->config();
+        $config = [
+            'js' => [
+                './assets/js/plugins/perfect-scrollbar.min.js',
+                './assets/js/datatable.js',
+                './assets/js/soft-ui-dashboard-pro-tailwind.min.js',
+            ],
+            'css' => ['./assets/css/databases.css'],
+        ];
         $config['seo'] = config('apps.user');
+        $title = $config['seo']['index'];
         $template = 'backend.dashboard.user.index';
         return view('backend.dashboard.layout', compact(
             'template',
             'config',
-            'users'
+            'users',
+            'title'
         ));
     }
     public function create() {
         $config['seo'] = config('apps.user');
-        $template = 'backend.dashboard.user.create';
+        $title = $config['seo']['create'];
+        $template = 'backend.dashboard.user.create2';
         return view('backend.dashboard.layout', compact(
-            'template', 'config', 
+            'template', 'config', 'title',
         ));
-    }
-    public function config() {
-        return [
-            'js' => [
-                //<!-- Peity -->
-                "access/js/plugins/peity/jquery.peity.min.js",
-                //<!-- Custom and plugin javascript -->
-                "access/js/inspinia.js",
-                "access/js/plugins/pace/pace.min.js",
-                //<!-- iCheck -->
-                "access/js/plugins/iCheck/icheck.min.js",
-                //<!-- Peity -->
-                "access/js/demo/peity-demo.js",
-                //<!-- Switchery -->
-                'access/js/plugins/switchery/switchery.js',
-                "access/js/library.customize.js"
-            ],
-            'css' => [
-                'access/css/plugins/switchery/switchery.css'
-            ]
-        ];
     }
 }

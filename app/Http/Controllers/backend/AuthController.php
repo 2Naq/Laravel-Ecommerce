@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\AuthRequest;
@@ -22,7 +23,31 @@ class AuthController extends Controller
         return view('backend.login');
     }
 
-    public function login(AuthRequest $request){
+    public function login(AuthRequest $request): RedirectResponse {
+        $remember = $request->has('remember'); 
+        // $remember = $request->all();
+        $credentials = [
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ];
+
+        if (Auth::attempt($credentials, $remember)) {
+            if (isset($remember)&& !empty($remember)){
+                // $rememberToken = Str::random(60);
+                // auth()->user()->setRememberToken($rememberToken);
+                setcookie('email', $credentials['email'],time()+3600);
+                setcookie('password', $credentials['password'],time()+3600);
+            }else{
+                setcookie('email','');
+                setcookie('password','');
+            }
+            return redirect()->route('dashboard.index')->with('success', "Đăng nhập thành công");
+        }
+    
+        return redirect()->route('auth.admin')->with('error', "Email hoặc mật khẩu không chính xác");
+    }
+
+    public function login2(AuthRequest $request){
         $credentials =[
             'email' => $request->input('email'),
             'password' => $request->input('password'),

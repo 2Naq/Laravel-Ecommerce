@@ -1,62 +1,91 @@
-<div class="ibox-content">
-    <table class="table-bordered table">
-        <thead>
-            {{-- tableHeading --}}
+<div
+    class="dataTable-container"
+    style="height: 302.594px;"
+>
+    <table
+        class="table-flush dataTable-table table"
+        datatable=""
+        id="datatable-search"
+    >
+        <thead class="thead-light">
             <tr>
-                <th>
+                <th
+                    data-sortable=""
+                    style="width: 0%;"
+                >
                     <input
                         type="checkbox"
                         value=""
                         class="input-checkbox checkBoxItem"
                     >
                 </th>
-                <th>#</th>
-                <th class="tb_w-100">Họ Tên</th>
-                <th class="tb_w-100">Email</th>
-                <th class="tb_w-100">Số điện thoại</th>
-                <th>Địa chỉ</th>
-                <th class="tb_w-100 text-center">Status</th>
-                <th class="tb_w-100 text-center">Thao tác</th>
+                <th
+                    data-sortable=""
+                    style="width: 6%;"
+                ><a
+                        href="javascript:;"
+                        class="dataTable-sorter"
+                    >#</a>
+
+                </th>
+                <th
+                    data-sortable=""
+                    style="width: 16.614%;"
+                >Họ và tên</th>
+                <th
+                    data-sortable=""
+                    style="width: 16.614%;"
+                >Email</th>
+                <th
+                    data-sortable=""
+                    style="width: 16.614%;"
+                >Số điện thoại</th>
+                <th
+                    data-sortable=""
+                    style="width: 27.4795%;"
+                >Địa chỉ</th>
+                <th data-sortable="">Status</th>
+                <th data-sortable="">Thao tác</th>
             </tr>
         </thead>
         <tbody>
             @if (isset($users) && is_object($users))
-
                 @foreach ($users as $user)
                     <tr>
-                        <td class="spacing-0">
+                        <td class="text-sm font-normal leading-normal">
                             <input
                                 type="checkbox"
                                 value=""
                                 class="input-checkbox checkBoxItem"
                             >
                         </td>
-                        <td class="spacing-0">{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->phone_number }}</td>
-                        <td>{{ $user->address }}</td>
-                        <td class="text-center">
+                        <td class="text-sm font-normal leading-normal">{{ $user->id }}</td>
+                        <td class="text-sm font-normal leading-normal">{{ $user->name }}</td>
+                        <td class="text-sm font-normal leading-normal">{{ $user->email }}</td>
+                        <td class="text-sm font-normal leading-normal">{{ $user->phone_number }}
+                        </td>
+                        <td class="text-sm font-normal leading-normal">{{ $user->address }}</td>
+                        {{-- trạng thái --}}
+                        <td class="text-sm font-normal leading-normal">
                             <input
+                                id="status"
+                                class="mt-0.54 rounded-10 duration-250 ease-soft-in-out after:rounded-circle after:shadow-soft-2xl after:duration-250 checked:after:translate-x-5.25 relative float-left ml-auto h-5 w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-slate-800/95 checked:bg-slate-800/95 checked:bg-none checked:bg-right"
                                 type="checkbox"
-                                class="js-switch"
-                                checked=""
-                                data-switchery="true"
-                                style="display: none;"
                             >
                         </td>
-                        <td class="text-center">
+                        {{-- thao tác --}}
+                        <td class="text-center text-sm font-normal leading-normal">
                             <a
-                                href="#"
-                                class="btn btn-success"
+                                href="javascript:;"
+                                class="text-xs font-semibold leading-tight text-slate-400"
                             >
-                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-edit text-cyan-500"></i>
                             </a>
                             <a
                                 href="#"
-                                class="btn btn-danger"
+                                class="ml-3 text-xs font-semibold leading-tight text-slate-400"
                             >
-                                <i class="fa fa-trash"></i>
+                                <i class="fa fa-trash text-red-500"></i>
                             </a>
                         </td>
                     </tr>
@@ -64,5 +93,4 @@
             @endif
         </tbody>
     </table>
-    @include('vendor.pagination.apagination_custom')
 </div>
