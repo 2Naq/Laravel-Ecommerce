@@ -57,6 +57,15 @@ if (document.querySelector('canvas')) {
     loadJS(to_build + 'assets/js/chart-2.js', true);
 }
 
+document.querySelector('[choice]') &&
+    (loadStylesheet(to_build + 'assets/css/choices.css'),
+    loadJS(to_build + 'assets/js/choices.js', !0));
+
+document.querySelector('.select-icon') &&
+    loadJS(to_build + 'assets/js/plugins/select-option.js', !0);
+
+// document.querySelector('aside') && loadJS(to_build + 'assets/js/plugins/sider-active.js', !0);
+
 function loadJS(FILE_URL, async) {
     let dynamicScript = document.createElement('script');
 

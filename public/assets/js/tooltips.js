@@ -1,5 +1,4 @@
-var buttons = document.querySelectorAll("[data-target='tooltip_trigger']");
-
+var buttons = document.querySelectorAll('[data-target="tooltip_trigger"]');
 buttons.forEach((button) => {
     var tooltip = button.nextElementSibling;
     var placement = button.getAttribute('data-placement');

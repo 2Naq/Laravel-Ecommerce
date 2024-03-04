@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\Ajax\LocationController;
 // use App\Http\Middleware\AuthenticateMiddleware;
 // use App\Http\Middleware\LoginMiddleware;
 // use App\Http\Middleware\Authenticate;
@@ -48,3 +49,11 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login','login')->name('auth.login');
     Route::get('/logout','logout')->name('auth.logout');
 });
+
+/*AJAX */
+Route::get('ajax/location/getProvince', [LocationController::class, 'getProvince'])
+        ->middleware('auth_check')
+        ->name('ajax.location.getProvince');
+Route::get('ajax/location/getDistrict', [LocationController::class, 'getDistrict'])
+        ->middleware('auth_check')
+        ->name('ajax.location.getDistrict');

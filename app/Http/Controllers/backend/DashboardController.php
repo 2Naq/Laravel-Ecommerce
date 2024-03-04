@@ -28,8 +28,9 @@ class DashboardController extends Controller
             "https://buttons.github.io/buttons.js",
             "./assets/js/plugins/chartjs.min.js",
             "./assets/js/plugins/perfect-scrollbar.min.js",
-            "./assets/js/soft-ui-dashboard-tailwind.js"
-            ],
+            "./assets/js/soft-ui-dashboard-tailwind.js",
+            "https://unpkg.com/@popperjs/core@2"
+            ]
         ];
     }
 

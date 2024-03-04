@@ -25,7 +25,7 @@
     src="https://kit.fontawesome.com/42d5adcbca.js"
     crossorigin="anonymous"
 ></script>
-<!-- Nucleo Icons -->
+
 <link
     href="./assets/css/nucleo-icons.css"
     rel="stylesheet"

@@ -19,7 +19,11 @@
 /*! tailwindcss v3.1.6 | MIT License | https://tailwindcss.com
 
 */
-
+/*!
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -3963,7 +3967,11 @@ h6 {
         left: 0.75rem;
     }
 }
-
+@media (min-width: 640px) {
+    .sm\:w-6\/12 {
+        width: 50%;
+    }
+}
 @media (min-width: 768px) {
     .md\:mr-0 {
         margin-right: 0px;
@@ -4453,4 +4461,35 @@ h6 {
     .xl-max\:opacity-65 {
         opacity: 0.65;
     }
+}
+
+.select-icon:after {
+    content: '\f107';
+    font: normal normal normal 14px/1 FontAwesome;
+    position: absolute;
+    right: 13.5px;
+    top: 14px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+.select-icon:focus-within {
+    outline: 2px solid transparent; /* Reset default outline */
+    outline-offset: 2px; /* Create offset for the new outline */
+    box-shadow: 0 0 0 2px #e9aede; /* Tailwind-like outline rgb(248, 113, 113) */
+    transition: all 0.2s ease-in-out; /* Add a smooth transition */
+}
+
+.active {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* shadow-soft-xl */
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #ffffff; /* bg-white */
+    font-weight: 600; /* font-semibold */
+    color: #4b5563; /* text-slate-700 */
+    /* Các thuộc tính khác có thể được thêm vào tùy theo yêu cầu */
+}
+.icon-active {
+    --tw-gradient-to: #ff0080;
+    --tw-gradient-from: #7928ca;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }

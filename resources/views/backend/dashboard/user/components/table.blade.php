@@ -3,7 +3,7 @@
     style="height: 302.594px;"
 >
     <table
-        class="table-flush dataTable-table table"
+        class="table-flush dataTable-table table table-auto"
         datatable=""
         id="datatable-search"
     >
@@ -22,28 +22,48 @@
                 <th
                     data-sortable=""
                     style="width: 6%;"
-                ><a
-                        href="javascript:;"
-                        class="dataTable-sorter"
-                    >#</a>
+                ><a href="javascript:;">#</a>
 
                 </th>
                 <th
                     data-sortable=""
                     style="width: 16.614%;"
-                >Họ và tên</th>
+                >
+                    <a
+                        href="javascript:;"
+                        class="dataTable-sorter"
+                    >
+                        Họ và tên </a>
+                </th>
                 <th
                     data-sortable=""
                     style="width: 16.614%;"
-                >Email</th>
+                >
+                    <a
+                        href="javascript:;"
+                        class="dataTable-sorter"
+                    >
+                        Email </a>
+                </th>
                 <th
                     data-sortable=""
                     style="width: 16.614%;"
-                >Số điện thoại</th>
+                >
+                    <a
+                        href="javascript:;"
+                        class="dataTable-sorter"
+                    >
+                        Số điện thoại</a>
+                </th>
                 <th
                     data-sortable=""
-                    style="width: 27.4795%;"
-                >Địa chỉ</th>
+                    style="width: 16.614%;"
+                >
+                    <a
+                        href="javascript:;"
+                        class="dataTable-sorter"
+                    >Địa chỉ </a>
+                </th>
                 <th data-sortable="">Status</th>
                 <th data-sortable="">Thao tác</th>
             </tr>
@@ -64,7 +84,7 @@
                         <td class="text-sm font-normal leading-normal">{{ $user->email }}</td>
                         <td class="text-sm font-normal leading-normal">{{ $user->phone_number }}
                         </td>
-                        <td class="text-sm font-normal leading-normal">{{ $user->address }}</td>
+                        <td class="whitespace-normal text-sm font-normal leading-normal">{{ $user->address }}</td>
                         {{-- trạng thái --}}
                         <td class="text-sm font-normal leading-normal">
                             <input
