@@ -1,8 +1,8 @@
 'use strict';
+const choiceProvinces = new Choices('#provinces', { allowHTML: true });
+const choicesDistricts = new Choices('#districts', { allowHTML: true });
+const choicesWards = new Choices('#wards', { allowHTML: true });
 (function ($) {
-    const choiceProvinces = new Choices('#provinces', { allowHTML: true });
-    const choicesDistricts = new Choices('#districts', { allowHTML: true });
-    const choicesWards = new Choices('#wards', { allowHTML: true });
     const HT = {
         initSearchIcons: function () {
             const inputs = document.querySelectorAll('input');
@@ -34,18 +34,43 @@
             });
         },
 
-        provinces: function () {
-            const provincesSelect = document.getElementById('provinces');
-            provincesSelect.addEventListener('change', (event) => {
-                const provincesID = event.target.value;
+        location: function () {
+            $(document).on('change', '.location', function () {
+                let _this = $(this);
+                let options = {
+                    data: {
+                        location_id: _this.val()
+                    },
+                    target: _this.attr('data-target')
+                };
+                HT.sendDataTogleLocation(options);
+            });
+        },
 
-                $.ajax({
-                    url: '/ajax/location/getProvince',
-                    method: 'GET',
-                    data: { province_id: provincesID },
-                    dataType: 'json',
-                    success: function (response) {
-                        const dataRes = Object.values(response);
+        // district: function () {
+        //     const districtsSelect = document.getElementById('districts');
+        //     districtsSelect.addEventListener('change', (event) => {
+        //         const targetValue = districtsSelect.dataset.target;
+        //         const district_id = event.target.value;
+        //         let options = {
+        //             data: {
+        //                 district_id: district_id
+        //             },
+        //             target: targetValue
+        //         };
+        //         HT.sendDataTogleLocation(options);
+        //     });
+        // },
+
+        sendDataTogleLocation: function (options) {
+            $.ajax({
+                url: '/ajax/location/getLocation',
+                method: 'GET',
+                data: options,
+                dataType: 'json',
+                success: function (response) {
+                    const dataRes = Object.values(response);
+                    if (options.target == 'districts') {
                         dataRes.unshift({ value: '', label: '--Chọn Quận/Huyện--' });
                         choicesDistricts
                             .setChoices(dataRes, 'value', 'label', true)
@@ -58,45 +83,23 @@
                                 true
                             )
                             .setChoiceByValue('');
-                    },
-                    error: (xhr, status, error) => {
-                        console.error('Ajax error:', xhr.status, error);
-                        console.error('Response text:', xhr.responseText);
-                    }
-                });
-            });
-        },
-
-        district: function () {
-            const districtsSelect = document.getElementById('districts');
-            districtsSelect.addEventListener('change', (event) => {
-                const district_id = event.target.value;
-
-                $.ajax({
-                    url: '/ajax/location/getDistrict',
-                    method: 'GET',
-                    data: { district_id: district_id },
-                    dataType: 'json',
-                    success: function (response) {
-                        const dataRes = Object.values(response);
-                        dataRes.unshift({ value: '', label: '--Chọn Phường/xã--' });
+                    } else {
+                        dataRes.unshift({ value: '', label: '--Chọn Phường/Xã--' });
                         choicesWards
                             .setChoices(dataRes, 'value', 'label', true)
                             .setChoiceByValue('');
-                    },
-                    error: (xhr, status, error) => {
-                        console.error('Ajax error:', xhr.status, error);
-                        console.error('Response text:', xhr.responseText);
                     }
-                });
+                },
+                error: (xhr, status, error) => {
+                    console.error('Ajax error:', xhr.status, error);
+                    console.error('Response text:', xhr.responseText);
+                }
             });
         }
     };
-
     $(document).ready(function () {
+        HT.location();
         HT.initSearchIcons();
-        HT.provinces();
-        HT.district();
         console.log('🚀 ~ function-main:', '-----------run--------');
     });
     console.log('🚀 ~File location:', '-----------run--------');

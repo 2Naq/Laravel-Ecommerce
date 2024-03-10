@@ -1,42 +1,9 @@
 if (document.querySelector('[choices-select]')) {
     var choices = document.querySelectorAll('[choices-select]');
-    // choices.forEach((choice) => {
-    //     const example = new Choices(choice, {
-    //         addItems: true,
-    //         removeItems: true,
-    //         allowHTML: true
-    //     });
-    //     console.log('🚀 ~ choices:', example);
-    // });
-
-    var inputs = document.querySelectorAll('input');
-    inputs.forEach(function (input) {
-        // Kiểm tra xem input có class "choices__input choices__input--cloned" hay không
-        if (
-            input.classList.contains('choices__input') ||
-            input.classList.contains('choices__input--cloned')
-        ) {
-            var divWrapper = document.createElement('div');
-            // Thêm class cho div wrapper
-            divWrapper.classList.add('input-wrapper', 'divInputSearch', 'div-icon-search');
-
-            // Tạo phần tử span container
-            var spanContainer = document.createElement('span');
-            spanContainer.classList.add('choice-icon', 'span-icon');
-            //Gắn span vào div vào
-            divWrapper.appendChild(spanContainer);
-
-            // Tạo icon tìm kiếm
-            var searchIcon = document.createElement('i');
-            searchIcon.classList.add('fas', 'fa-search');
-            searchIcon.setAttribute('aria-hidden', 'true');
-            // Gắn icon vào span
-            spanContainer.appendChild(searchIcon);
-
-            // Chuyển input vào trong div wrapper
-            input.parentNode.insertBefore(divWrapper, input);
-            divWrapper.appendChild(input);
-        }
+    choices.forEach((choice) => {
+        const example = new Choices(choice, {
+            allowHTML: true
+        });
     });
 }
 if (document.getElementById('choices-gender')) {

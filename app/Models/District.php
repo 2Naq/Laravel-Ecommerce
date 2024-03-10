@@ -14,4 +14,14 @@ class District extends Model
     ];
 
     protected $table = 'districts';
+    protected $primaryKey = 'code';
+    protected $incerementing = false;
+    
+    public function wards() {
+        return $this->hasMany(Ward::class, 'district_code', 'code'); 
+    }
+    
+    public function provinces() {
+        return $this->belongsTo(Province::class, 'province_code', 'code');
+    }
 }

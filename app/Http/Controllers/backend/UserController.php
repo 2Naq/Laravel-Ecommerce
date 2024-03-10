@@ -65,5 +65,9 @@ class UserController extends Controller
             'template', 'config', 'title','provinces',
         ));
     }
+    public function store() {
+        echo 11111111;die();
+        
+    }
 }
 

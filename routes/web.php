@@ -38,6 +38,11 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/create', [UserController::class, 'create'])
         ->middleware('auth_check')
         ->name('user.create');
+
+        // post------------
+        Route::post('/store', [UserController::class, 'store'])
+        ->middleware('auth_check')
+        ->name('user.store');
     });
 });
 
@@ -51,9 +56,9 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 /*AJAX */
-Route::get('ajax/location/getProvince', [LocationController::class, 'getProvince'])
+Route::get('ajax/location/getLocation', [LocationController::class, 'getLocation'])
         ->middleware('auth_check')
-        ->name('ajax.location.getProvince');
+        ->name('ajax.location.getLocation');
 Route::get('ajax/location/getDistrict', [LocationController::class, 'getDistrict'])
         ->middleware('auth_check')
         ->name('ajax.location.getDistrict');

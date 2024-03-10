@@ -14,4 +14,13 @@ class Province extends Model
     ];
 
     protected $table = 'provinces';
+    protected $primaryKey = 'code';
+    protected $incerementing = false;
+
+
+    public function districts() {
+        return $this->hasMany(District::class, 'province_code', 'code'); 
+        // - Một tỉnh (province) sẽ có nhiều huyện (districts).
+        // $this->hasMany(model | foreign key (khóa ngoại) | primary key(khóa chính) )
+    }
 }

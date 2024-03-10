@@ -9,7 +9,10 @@
                     <form
                         class="relative mb-32"
                         style="height: 404px;"
+                        action="{{ route('user.store') }}"
+                        method="POST"
                     >
+                        @csrf
                         <div
                             active=""
                             form="user"
@@ -111,10 +114,10 @@
                                             {{-- min-h-10 focus:shadow-soft-primary-outline leading-5.6 ease-soft select-icon relative flex w-full items-center rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-sm font-normal text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none dark:bg-gray-950 dark:text-white/80 dark:placeholder:text-white/80 --}}
                                             <select
                                                 id="provinces"
-                                                class="provinces w-full appearance-none outline-none"
+                                                class="provinces location w-full appearance-none outline-none"
                                                 name="choices"
                                                 type="select-one"
-                                                choices-select="true"
+                                                data-target="districts"
                                             >
                                                 <option value="#">--Chọn Tỉnh/Thành Phố--</option>
                                                 @if (isset($provinces))
@@ -134,10 +137,10 @@
                                         <div class="w-full">
                                             <select
                                                 id="districts"
-                                                class="districts w-full appearance-none outline-none"
+                                                class="districts location w-full appearance-none outline-none"
                                                 name="choices"
-                                                choices-select="true"
                                                 type="select-one"
+                                                data-target="wards"
                                             >
                                                 <option value="#">--Chọn Quận/Huyện--</option>
                                             </select>
@@ -153,7 +156,6 @@
                                                 id="wards"
                                                 class="w-full appearance-none outline-none"
                                                 name="choices"
-                                                choices-select="true"
                                                 type="select-one"
                                             >
                                                 <option value="#">--Chọn Phường/Xã--</option>
@@ -164,7 +166,7 @@
 
                                 <div class="mt-6 flex">
                                     <button
-                                        type="button"
+                                        type="submit"
                                         aria-controls="address"
                                         next-form-btn=""
                                         href="javascript:;"

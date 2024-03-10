@@ -13,6 +13,5 @@ class ProvinceRepository extends BaseRepository implements ProvinceRepositoryInt
     ){
         $this->model = $model;
     }
-    
 
 }
