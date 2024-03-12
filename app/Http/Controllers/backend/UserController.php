@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Interfaces\UserServiceInterface as UserService;
 use App\Repositories\Interfaces\ProvinceRepositoryInterface as ProvinceRepository;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserRequest;
 
 
 class UserController extends Controller
@@ -40,32 +41,28 @@ class UserController extends Controller
     }
     public function create() {
         $config = [
+            'css' => [
+                './assets/css/choices.css',
+            ],
             'js' => [
                     './assets/js/soft-ui-dashboard-tailwind.js',
-                    './assets/js/plugins/choices.main.js',
+                    "./assets/js/plugins/perfect-scrollbar.min.js",
+                    './assets/js/plugins/choices.min.js',
                     './assets/js/plugins/jquery-3.1.1.min.js',
                     './assets/js/choices.js',
                     './assets/js/location.js',
-                    "./assets/js/plugins/perfect-scrollbar.min.js",
-
-                    // './assets/js/plugins/1.js',
-                    // 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'/
             ],
-            'css' => [
-                // 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css',
-                './assets/css/choices.css',
-            ],
+            
         ];
         $config['seo'] = config('apps.user');
         $title = $config['seo']['create'];
         $template = 'backend.dashboard.user.create2';
         $provinces =  $this->provincerepository->all();
-// dd($provinces);
         return view('backend.dashboard.layout', compact(
             'template', 'config', 'title','provinces',
         ));
     }
-    public function store() {
+    public function store(StoreUserRequest $request) {
         echo 11111111;die();
         
     }

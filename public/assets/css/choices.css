@@ -814,55 +814,15 @@
     background-color: #fff;
 }
 
-/* .choices__input.choices__input--cloned {
-    border: 1px solid #d2d6da !important;
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem !important;
-}
-.choices--provinces-item-choice-1 {
-    position: relative;
-    display: flex !important;
-    width: 100%;
-    flex-wrap: wrap;
-    border-radius: 0.5rem;
-    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-} */
-.divInputSearch {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    margin-bottom: 0.5rem !important;
-    align-items: stretch;
-    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.choice-icon.span-icon {
-    display: flex;
-    position: absolute;
-    z-index: 50;
-    line-height: 5.6;
-    height: 100%;
-    margin-left: 1px;
-    left: 0px;
-    text-align: center;
-    align-items: center;
-    white-space: nowrap;
-    padding: 0.625rem 0.5rem;
-}
-
-.choices__input.choices__input--cloned {
+input.choices__input.choices__input--cloned {
     display: flex;
     flex: 1 1 auto;
     position: relative;
-    padding-left: 2.1875rem !important;
-    padding-right: 0.75rem !important;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 0.75rem;
     min-width: 0px;
     border-radius: 0.5rem;
     border: 1px solid #d2d6da !important;
+    margin-bottom: 10px !important;
 }
 
 .choices__input.choices__input--cloned:focus {

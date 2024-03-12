@@ -1,39 +1,38 @@
 'use strict';
-const choiceProvinces = new Choices('#provinces', { allowHTML: true });
-const choicesDistricts = new Choices('#districts', { allowHTML: true });
-const choicesWards = new Choices('#wards', { allowHTML: true });
 (function ($) {
+    const choiceProvinces = new Choices('#provinces', { renderChoiceLimit: -1 });
+    const choicesDistricts = new Choices('#districts', { renderChoiceLimit: -1 });
+    const choicesWards = new Choices('#wards', { renderChoiceLimit: -1 });
     const HT = {
-        initSearchIcons: function () {
-            const inputs = document.querySelectorAll('input');
-            inputs.forEach(function (input) {
-                // Kiểm tra xem input có class "choices__input choices__input--cloned" hay không
-                if (
-                    input.classList.contains('choices__input') ||
-                    input.classList.contains('choices__input--cloned')
-                ) {
-                    const divWrapper = document.createElement('div');
-                    // Thêm class cho div wrapper
-                    divWrapper.classList.add('input-wrapper', 'divInputSearch', 'div-icon-search');
-                    // Tạo phần tử span container
-                    const spanContainer = document.createElement('span');
-                    spanContainer.classList.add('choice-icon', 'span-icon');
-                    // Tạo icon tìm kiếm
-                    const searchIcon = document.createElement('i');
-                    searchIcon.classList.add('fas', 'fa-search');
-                    searchIcon.setAttribute('aria-hidden', 'true');
+        // initSearchIcons: function () {
+        //     const inputs = document.querySelectorAll('input');
+        //     inputs.forEach(function (input) {
+        //         // Kiểm tra xem input có class "choices__input choices__input--cloned" hay không
+        //         if (
+        //             input.classList.contains('choices__input') &&
+        //             input.classList.contains('choices__input--cloned')
+        //         ) {
+        //             const divWrapper = document.createElement('div');
+        //             // Thêm class cho div wrapper
+        //             divWrapper.classList.add('input-wrapper', 'divInputSearch', 'div-icon-search');
+        //             // Tạo phần tử span container
+        //             const spanContainer = document.createElement('span');
+        //             spanContainer.classList.add('choice-icon', 'span-icon');
+        //             // Tạo icon tìm kiếm
+        //             const searchIcon = document.createElement('i');
+        //             searchIcon.classList.add('fas', 'fa-search');
+        //             searchIcon.setAttribute('aria-hidden', 'true');
 
-                    //Gắn span vào div vào
-                    divWrapper.appendChild(spanContainer);
-                    // Gắn icon vào span
-                    spanContainer.appendChild(searchIcon);
-                    // Chuyển input vào trong div wrapper
-                    input.parentNode.insertBefore(divWrapper, input);
-                    divWrapper.appendChild(input);
-                }
-            });
-        },
-
+        //             //Gắn span vào div vào
+        //             divWrapper.appendChild(spanContainer);
+        //             // Gắn icon vào span
+        //             spanContainer.appendChild(searchIcon);
+        //             // Chuyển input vào trong div wrapper
+        //             input.parentNode.insertBefore(divWrapper, input);
+        //             divWrapper.appendChild(input);
+        //         }
+        //     });
+        // },
         location: function () {
             $(document).on('change', '.location', function () {
                 let _this = $(this);
@@ -46,21 +45,6 @@ const choicesWards = new Choices('#wards', { allowHTML: true });
                 HT.sendDataTogleLocation(options);
             });
         },
-
-        // district: function () {
-        //     const districtsSelect = document.getElementById('districts');
-        //     districtsSelect.addEventListener('change', (event) => {
-        //         const targetValue = districtsSelect.dataset.target;
-        //         const district_id = event.target.value;
-        //         let options = {
-        //             data: {
-        //                 district_id: district_id
-        //             },
-        //             target: targetValue
-        //         };
-        //         HT.sendDataTogleLocation(options);
-        //     });
-        // },
 
         sendDataTogleLocation: function (options) {
             $.ajax({
@@ -99,7 +83,7 @@ const choicesWards = new Choices('#wards', { allowHTML: true });
     };
     $(document).ready(function () {
         HT.location();
-        HT.initSearchIcons();
+        // HT.initSearchIcons();
         console.log('🚀 ~ function-main:', '-----------run--------');
     });
     console.log('🚀 ~File location:', '-----------run--------');

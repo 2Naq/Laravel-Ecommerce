@@ -2,7 +2,7 @@ if (document.querySelector('[choices-select]')) {
     var choices = document.querySelectorAll('[choices-select]');
     choices.forEach((choice) => {
         const example = new Choices(choice, {
-            allowHTML: true
+            renderChoiceLimit: -1
         });
     });
 }

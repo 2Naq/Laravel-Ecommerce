@@ -10,11 +10,24 @@
 >
 @vite('resources/css/app.css')
 <title>DevShop | Login</title>
+
 <!-- Main Styling -->
 <link
     href="./assets/css/soft-ui-dashboard-tailwind.css"
     rel="stylesheet"
 />
+
+
+{{-- add css  plugin --}}
+@if (isset($config['css']) && is_array($config['css']))
+    @foreach ($config['css'] as $key => $val)
+        <link
+            href="{{ htmlspecialchars($val) }}"
+            rel="stylesheet"
+        />
+    @endforeach
+@endif
+
 <!--     Fonts and icons     -->
 <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
@@ -34,12 +47,3 @@
     href="./assets/css/nucleo-svg.css"
     rel="stylesheet"
 />
-{{-- add css  plugin --}}
-@if (isset($config['css']) && is_array($config['css']))
-    @foreach ($config['css'] as $key => $val)
-        <link
-            href="{{ htmlspecialchars($val) }}"
-            rel="stylesheet"
-        />
-    @endforeach
-@endif

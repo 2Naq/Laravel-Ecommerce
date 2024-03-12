@@ -5,5 +5,6 @@
     "singleQuote": true,
     "printWidth": 100,
     "trailingComma": "none",
+    "ignorePath": ["**/min.js", "**/min.css"],
     "plugins": ["prettier-plugin-tailwindcss"]
 }
