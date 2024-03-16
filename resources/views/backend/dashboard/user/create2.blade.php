@@ -4,7 +4,16 @@
             multisteps-form=""
             class="mb-12"
         >
-            <div class="-mx-3 flex flex-wrap">
+            @if ($errors->any())
+                <div class="mb-4 rounded border border-red-400 bg-red-100 p-4 text-red-700">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <div class="-mx-3 flex flex-wrap justify-center">
                 <div class="flex-0 m-auto w-full max-w-full px-3 lg:w-8/12">
                     <form
                         class="relative mb-32"
@@ -26,11 +35,12 @@
                                     <div class="flex-0 w-full max-w-full px-3 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="First Name"
-                                        >First Name</label>
+                                            for="fullname"
+                                        >Full Name (<span class="text-red-600">*</span>)</label>
                                         <input
                                             type="text"
-                                            name="First Name"
+                                            id="fullname"
+                                            name="fullname"
                                             placeholder="eg. Michael"
                                             class="focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-sm font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none dark:bg-gray-950 dark:text-white/80 dark:placeholder:text-white/80"
                                         >
@@ -38,25 +48,30 @@
                                     <div class="flex-0 mt-4 w-full max-w-full px-3 sm:mt-0 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="Last Name"
-                                        >Last Name</label>
+                                            for="email"
+                                        >Email Address (<span class="text-red-600">*</span>)</label>
                                         <input
-                                            type="text"
-                                            name="Last Name"
-                                            placeholder="eg. Prior"
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            autocomplete="username"
+                                            placeholder="eg. soft@dashboard.com"
                                             class="focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-sm font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none dark:bg-gray-950 dark:text-white/80 dark:placeholder:text-white/80"
                                         >
                                     </div>
                                 </div>
+
                                 <div class="-mx-3 mt-4 flex flex-wrap">
                                     <div class="flex-0 w-full max-w-full px-3 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="Membership-Group"
-                                        >Nhóm thành viên</label>
+                                            for="user-catelogue_id"
+                                        >Nhóm thành viên (<span class="text-red-600">*</span>)</label>
                                         <select
                                             choices-select=""
-                                            name="choices"
+                                            choice
+                                            id="user-catelogue_id"
+                                            name="user-catelogue_id"
                                             placeholder="Chọn nhóm thành viên"
                                         >
                                             <option value="0">--Chọn nhóm thành viên--</option>
@@ -69,25 +84,27 @@
                                     <div class="flex-0 mt-4 w-full max-w-full px-3 sm:mt-0 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="Email Address"
-                                        >Email Address</label>
+                                            for="birthday"
+                                        >Birthday</label>
                                         <input
-                                            type="email"
-                                            name="Email Address"
-                                            autocomplete="username"
-                                            placeholder="eg. soft@dashboard.com"
+                                            type="date"
+                                            id="birthday"
+                                            name="birthday"
+                                            {{-- placeholder="eg. --/--/----" --}}
                                             class="focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-sm font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none dark:bg-gray-950 dark:text-white/80 dark:placeholder:text-white/80"
                                         >
                                     </div>
                                 </div>
+
                                 <div class="-mx-3 mt-4 flex flex-wrap">
                                     <div class="flex-0 w-full max-w-full px-3 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="Password"
-                                        >Password</label>
+                                            for="password"
+                                        >Password (<span class="text-red-600">*</span>)</label>
                                         <input
                                             type="password"
+                                            id="password"
                                             name="password"
                                             autocomplete="new-password"
                                             placeholder="******"
@@ -97,11 +114,12 @@
                                     <div class="flex-0 mt-4 w-full max-w-full px-3 sm:mt-0 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="Repeat Password"
-                                        >Repeat Password</label>
+                                            for="Repeat-Password"
+                                        >Repeat Password (<span class="text-red-600">*</span>)</label>
                                         <input
                                             type="password"
-                                            name="Repeat password"
+                                            id="Repeat-Password"
+                                            name="Repeat-Password"
                                             autocomplete="new-password"
                                             placeholder="******"
                                             class="focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-sm font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none dark:bg-gray-950 dark:text-white/80 dark:placeholder:text-white/80"
@@ -110,20 +128,21 @@
                                 </div>
                                 {{-- choice --}}
                                 <div class="-mx-3 mt-4 flex flex-wrap">
+                                    {{-- province --}}
                                     <div class="flex-0 mt-4 w-full max-w-full px-3 sm:mt-0 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="city"
+                                            for="provinces"
                                         >Tỉnh/Thành Phố</label>
                                         <div class="w-full">
                                             <select
                                                 id="provinces"
                                                 class="provinces location w-full appearance-none outline-none"
-                                                name="choices"
+                                                name="provinces"
                                                 type="select-one"
                                                 data-target="districts"
                                             >
-                                                <option value="#">--Chọn Tỉnh/Thành Phố--</option>
+                                                <option value="0">--Chọn Tỉnh/Thành Phố--</option>
                                                 @if (isset($provinces))
                                                     @foreach ($provinces as $province)
                                                         <option value="{{ $province['code'] }}">
@@ -133,16 +152,17 @@
                                             </select>
                                         </div>
                                     </div>
+                                    {{-- districts  --}}
                                     <div class="flex-0 mt-4 w-full max-w-full px-3 sm:mt-0 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="city"
+                                            for="districts"
                                         >Quận/Huyện</label>
                                         <div class="w-full">
                                             <select
                                                 id="districts"
                                                 class="districts location w-full appearance-none outline-none"
-                                                name="choices"
+                                                name="districts"
                                                 type="select-one"
                                                 data-target="wards"
                                             >
@@ -150,24 +170,41 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                                {{-- wards --}}
+                                <div class="-mx-3 mt-4 flex flex-wrap">
                                     <div class="flex-0 mt-4 w-full max-w-full px-3 sm:mt-0 sm:w-6/12">
                                         <label
                                             class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
-                                            for="city"
+                                            for="wards"
                                         >Phường/Xã</label>
                                         <div class="w-full">
                                             <select
                                                 id="wards"
                                                 class="w-full appearance-none outline-none"
-                                                name="choices"
+                                                name="wards"
                                                 type="select-one"
                                             >
                                                 <option value="#">--Chọn Phường/Xã--</option>
                                             </select>
                                         </div>
                                     </div>
+                                    {{-- address --}}
+                                    <div class="flex-0 mt-4 w-full max-w-full px-3 sm:mt-0 sm:w-6/12">
+                                        <label
+                                            class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
+                                            for="Address"
+                                        >Detailed address</label>
+                                        <input
+                                            type="text"
+                                            id="Address"
+                                            name="Address"
+                                            placeholder="eg. ấp 5 xã Long Thọ, Nhơn Trạch, Đồng Nai"
+                                            class="focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-sm font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none dark:bg-gray-950 dark:text-white/80 dark:placeholder:text-white/80"
+                                        >
+                                    </div>
                                 </div>
-
+                                {{-- button summit --}}
                                 <div class="mt-6 flex">
                                     <button
                                         type="submit"

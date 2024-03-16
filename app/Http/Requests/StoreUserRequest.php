@@ -23,8 +23,11 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => 'required|string|email|unique:users',
+            'fullname' => 'required|string',
+            'user-catelogue_id' => 'required|integer|gt:0', //gt:0 (greater) lớn hơn 0
+            'password' => 'required|string',
+            're-password' => 'required|string|same:password',
         ];
     }
     

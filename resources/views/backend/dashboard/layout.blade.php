@@ -20,5 +20,9 @@
         </main>
     </body>
     @include('backend.dashboard.components.script')
+    <script
+        src='./assets/js/soft-ui-dashboard-tailwind.js'
+        async
+    ></script>
 
 </html>

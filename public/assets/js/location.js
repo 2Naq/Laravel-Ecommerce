@@ -83,7 +83,6 @@
     };
     $(document).ready(function () {
         HT.location();
-        // HT.initSearchIcons();
         console.log('🚀 ~ function-main:', '-----------run--------');
     });
     console.log('🚀 ~File location:', '-----------run--------');

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 
 
+
 class UserController extends Controller
 {
     public function __construct(
@@ -23,9 +24,8 @@ class UserController extends Controller
         $users = $this->userService->paginate();
         $config = [
             'js' => [
-                './assets/js/datatable.js',
                 './assets/js/plugins/perfect-scrollbar.min.js',
-                './assets/js/soft-ui-dashboard-tailwind.js',
+                './assets/js/datatable.js',
             ],
             'css' => ['./assets/css/datatable.css'],
         ];
@@ -45,12 +45,9 @@ class UserController extends Controller
                 './assets/css/choices.css',
             ],
             'js' => [
-                    './assets/js/soft-ui-dashboard-tailwind.js',
-                    "./assets/js/plugins/perfect-scrollbar.min.js",
-                    './assets/js/plugins/choices.min.js',
-                    './assets/js/plugins/jquery-3.1.1.min.js',
-                    './assets/js/choices.js',
-                    './assets/js/location.js',
+                './assets/js/plugins/choices.min.js',
+                './assets/js/plugins/perfect-scrollbar.min.js',
+                './assets/js/location.js',
             ],
             
         ];
@@ -63,8 +60,7 @@ class UserController extends Controller
         ));
     }
     public function store(StoreUserRequest $request) {
-        echo 11111111;die();
-        
+        echo 1111111;die();
     }
 }
 

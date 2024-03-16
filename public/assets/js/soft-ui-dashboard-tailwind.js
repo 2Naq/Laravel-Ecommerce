@@ -23,65 +23,51 @@ if (!aux.includes('pages')) {
     page = 'dashboard';
 }
 
-loadStylesheet(to_build + 'assets/css/perfect-scrollbar.css');
-loadJS(to_build + 'assets/js/perfect-scrollbar.js', true);
+function loadResource(resourceUrl, type) {
+    var dynamicResource =
+        type === 'css' ? document.createElement('link') : document.createElement('script');
 
-if (document.querySelector('nav [navbar-trigger]')) {
-    loadJS(to_build + 'assets/js/navbar-collapse.js', true);
+    if (type === 'css') {
+        dynamicResource.setAttribute('href', resourceUrl);
+        dynamicResource.setAttribute('type', 'text/css');
+        dynamicResource.setAttribute('rel', 'stylesheet');
+    } else {
+        dynamicResource.setAttribute('src', resourceUrl);
+        dynamicResource.setAttribute('type', 'text/javascript');
+        dynamicResource.setAttribute('async', true);
+    }
+
+    document.head.appendChild(dynamicResource);
 }
 
-if (document.querySelector("[data-target='tooltip']")) {
-    loadJS(to_build + 'assets/js/tooltips.js', true);
-    loadStylesheet(to_build + 'assets/css/tooltips.css');
-}
+loadResource(to_build + 'assets/css/perfect-scrollbar.css', 'css');
+loadResource(to_build + 'assets/js/perfect-scrollbar.js', 'js');
 
-if (document.querySelector('[nav-pills]')) {
-    loadJS(to_build + 'assets/js/nav-pills.js', true);
-}
-
-if (document.querySelector('[dropdown-trigger]')) {
-    loadJS(to_build + 'assets/js/dropdown.js', true);
-}
-
-if (document.querySelector('[fixed-plugin]')) {
-    loadJS(to_build + 'assets/js/fixed-plugin.js', true);
-}
-
-if (document.querySelector('[navbar-main]')) {
-    loadJS(to_build + 'assets/js/sidenav-burger.js', true);
-    loadJS(to_build + 'assets/js/navbar-sticky.js', true);
-}
-
-if (document.querySelector('canvas')) {
-    loadJS(to_build + 'assets/js/chart-1.js', true);
-    loadJS(to_build + 'assets/js/chart-2.js', true);
-}
-
-document.querySelector('[choice]') &&
-    (loadStylesheet(to_build + 'assets/css/choices.css'),
-    loadJS(to_build + 'assets/js/choices.js', !0));
+document.querySelector('[choice]') && loadResource(to_build + 'assets/js/choices.js', 'js');
+// loadResource(to_build + 'assets/css/choices.css', 'css')
 
 document.querySelector('.select-icon') &&
-    loadJS(to_build + 'assets/js/plugins/select-option.js', !0);
+    loadResource(to_build + 'assets/js/plugins/select-option.js', 'js');
 
-// document.querySelector('aside') && loadJS(to_build + 'assets/js/plugins/sider-active.js', !0);
+document.querySelector('nav [navbar-trigger]') &&
+    loadResource(to_build + 'assets/js/navbar-collapse.js', 'js');
 
-function loadJS(FILE_URL, async) {
-    let dynamicScript = document.createElement('script');
+document.querySelector("[data-target='tooltip']") &&
+    (loadResource(to_build + 'assets/js/tooltips.js', 'js'),
+    loadResource(to_build + 'assets/css/tooltips.css', 'css'));
 
-    dynamicScript.setAttribute('src', FILE_URL);
-    dynamicScript.setAttribute('type', 'text/javascript');
-    dynamicScript.setAttribute('async', async);
+document.querySelector('[nav-pills]') && loadResource(to_build + 'assets/js/nav-pills.js', 'js');
 
-    document.head.appendChild(dynamicScript);
-}
+document.querySelector('[dropdown-trigger]') &&
+    loadResource(to_build + 'assets/js/dropdown.js', 'js');
 
-function loadStylesheet(FILE_URL) {
-    let dynamicStylesheet = document.createElement('link');
+document.querySelector('[fixed-plugin]') &&
+    loadResource(to_build + 'assets/js/fixed-plugin.js', 'js');
 
-    dynamicStylesheet.setAttribute('href', FILE_URL);
-    dynamicStylesheet.setAttribute('type', 'text/css');
-    dynamicStylesheet.setAttribute('rel', 'stylesheet');
+document.querySelector('[navbar-main]') &&
+    (loadResource(to_build + 'assets/js/sidenav-burger.js', 'js'),
+    loadResource(to_build + 'assets/js/navbar-sticky.js', 'js'));
 
-    document.head.appendChild(dynamicStylesheet);
-}
+document.querySelector('canvas') &&
+    loadResource(to_build + 'assets/js/chart-1.js', 'js') &&
+    loadResource(to_build + 'assets/js/chart-2.js', 'js');

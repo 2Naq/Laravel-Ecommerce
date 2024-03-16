@@ -10,14 +10,26 @@
 >
 @vite('resources/css/app.css')
 <title>DevShop | Login</title>
-
-<!-- Main Styling -->
+<link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+    rel="stylesheet"
+/>
+<script
+    src="https://kit.fontawesome.com/42d5adcbca.js"
+    crossorigin="anonymous"
+></script>
+<link
+    href="./assets/css/nucleo-icons.css"
+    rel="stylesheet"
+/>
+<link
+    href="./assets/css/nucleo-svg.css"
+    rel="stylesheet"
+/>
 <link
     href="./assets/css/soft-ui-dashboard-tailwind.css"
     rel="stylesheet"
 />
-
-
 {{-- add css  plugin --}}
 @if (isset($config['css']) && is_array($config['css']))
     @foreach ($config['css'] as $key => $val)
@@ -27,23 +39,7 @@
         />
     @endforeach
 @endif
-
-<!--     Fonts and icons     -->
-<link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-    rel="stylesheet"
-/>
-<!-- Font Awesome Icons -->
 <script
-    src="https://kit.fontawesome.com/42d5adcbca.js"
+    src='./assets/js/plugins/jquery-3.1.1.min.js'
     crossorigin="anonymous"
 ></script>
-
-<link
-    href="./assets/css/nucleo-icons.css"
-    rel="stylesheet"
-/>
-<link
-    href="./assets/css/nucleo-svg.css"
-    rel="stylesheet"
-/>
