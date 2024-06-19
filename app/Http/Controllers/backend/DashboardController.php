@@ -27,7 +27,6 @@ class DashboardController extends Controller
             'js' => [
             "https://buttons.github.io/buttons.js",
             "./assets/js/plugins/chartjs.min.js",
-            "./assets/js/plugins/perfect-scrollbar.min.js",
             ]
         ];
     }

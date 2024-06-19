@@ -24,7 +24,6 @@ class UserController extends Controller
         $users = $this->userService->paginate();
         $config = [
             'js' => [
-                './assets/js/plugins/perfect-scrollbar.min.js',
                 './assets/js/datatable.js',
             ],
             'css' => ['./assets/css/datatable.css'],
@@ -46,7 +45,6 @@ class UserController extends Controller
             ],
             'js' => [
                 './assets/js/plugins/choices.min.js',
-                './assets/js/plugins/perfect-scrollbar.min.js',
                 './assets/js/location.js',
             ],
             

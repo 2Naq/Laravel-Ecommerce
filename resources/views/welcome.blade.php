@@ -17,8 +17,13 @@
             crossorigin="anonymous"
         ></script>
         @vite('resources/css/app.css')
+        <link
+            href="./assets/css/choices.css"
+            rel="stylesheet"
+        />
+        <script src="./assets/js/choices.js"></script>
 
-        <style>
+        {{-- <style>
             .gradient-text {
                 background: linear-gradient(90deg, #00ffff, #ff00c3);
                 -webkit-background-clip: text;
@@ -26,8 +31,6 @@
                 -webkit-text-fill-color: transparent;
                 font-size: 100px;
             }
-
-
 
             .choices--provinces-item-choice-1 {
                 position: relative;
@@ -72,11 +75,7 @@
             .choices__input.choices__input--cloned:focus {
                 box-shadow: 0 0 0 2px #e9aede, 0 0 0 2px #0000;
             }
-        </style>
-        {{-- <link
-            href="./assets/css/choices.css"
-            rel="stylesheet"
-        /> --}}
+        </style> --}}
     </head>
 
     <body class="leading-default m-0 bg-gray-50 font-sans text-base font-normal text-slate-500 antialiased">
@@ -84,7 +83,7 @@
             <span class="gradient-text">heheh</span>
         </div>
         {{-- flex items-center justify-center --}}
-        <div class="choices--provinces-item-choice-1">
+        {{-- <div class="choices--provinces-item-choice-1">
             <span class="choice-icon span-icon"><i
                     class="fas fa-search"
                     aria-hidden="true"
@@ -102,11 +101,13 @@
                 aria-autocomplete="list"
                 aria-label="null"
             >
-        </div>
+        </div> --}}
         <select
             id="district"
             name="district"
             class="form-control"
+            choices-select=""
+            choice
         >
             <option value="">Chọn quận/huyện</option>
             <option value="1">Quận 1</option>
@@ -117,5 +118,10 @@
         </select>
 
     </body>
+    <script src="./assets/js/plugins/choices.min.js"></script>
+    {{-- <script
+        src='./assets/js/soft-ui-dashboard-tailwind.js'
+        async
+    ></script> --}}
 
 </html>

@@ -21,6 +21,10 @@
     </body>
     @include('backend.dashboard.components.script')
     <script
+        src='./assets/js/plugins/perfect-scrollbar.min.js'
+        async
+    ></script>
+    <script
         src='./assets/js/soft-ui-dashboard-tailwind.js'
         async
     ></script>
